@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Tuberculosis</title>
+</head>
+<body>
+    <h1>Prédiction Tuberculose</h1>
+    <form method="POST">
+        Age: <input type="number" name="Age" required><br>
+        Gender: 
+        <select name="Gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+        Cough (0 ou 1): <input type="number" name="Cough" min="0" max="1" required><br>
+        Fever (0 ou 1): <input type="number" name="Fever" min="0" max="1" required><br>
+        Weight_Loss (0 ou 1): <input type="number" name="Weight_Loss" min="0" max="1" required><br>
+        Night_Sweats (0 ou 1): <input type="number" name="Night_Sweats" min="0" max="1" required><br>
+        Fatigue (0 ou 1): <input type="number" name="Fatigue" min="0" max="1" required><br>
+        Chest_Pain (0 ou 1): <input type="number" name="Chest_Pain" min="0" max="1" required><br>
+        Shortness_of_Breath (0 ou 1): <input type="number" name="Shortness_of_Breath" min="0" max="1" required><br>
+        Contact_with_TB (0 ou 1): <input type="number" name="Contact_with_TB" min="0" max="1" required><br>
+        HIV_Status (0 ou 1): <input type="number" name="HIV_Status" min="0" max="1" required><br>
+        Diabetes (0 ou 1): <input type="number" name="Diabetes" min="0" max="1" required><br>
+        Smoking (0 ou 1): <input type="number" name="Smoking" min="0" max="1" required><br>
+        Alcohol_Consumption (0 ou 1): <input type="number" name="Alcohol_Consumption" min="0" max="1" required><br><br>
+        <input type="submit" value="Prédire">
+    </form>
+
+    {% if prediction is not none %}
+        <h2>Résultat :</h2>
+        <p>Prédiction TB : <strong>{{ prediction }}</strong></p>
+        <p>Probabilité : <strong>{{ "%.2f"|format(probability*100) }}%</strong></p>
+    {% endif %}
+</body>
+</html>
